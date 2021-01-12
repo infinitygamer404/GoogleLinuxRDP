@@ -9,6 +9,7 @@ sudo apt-get update
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
+echo 'Installing desktop environment (kde-standard)'
 sudo DEBIAN_FRONTEND=noninteractive \
 apt install --assume-yes kde-standard desktop-base
 sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/plasma-session" > /etc/chrome-remote-desktop-session'  
