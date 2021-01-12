@@ -1,8 +1,8 @@
 #! /bin/bash
 printf "Installing Linux RDP Please Wait... " >&2
 {
-sudo useradd -m CuteWolfie
-sudo adduser CuteWolfie sudo
+sudo useradd -m mr-x
+sudo adduser mr-x sudo
 echo 'mr-x:xxx' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 sudo apt-get update
