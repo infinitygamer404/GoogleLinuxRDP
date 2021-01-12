@@ -9,10 +9,10 @@ sudo apt-get update
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
 sudo apt install --assume-yes --fix-broken
-echo 'Installing desktop environment (kde-standard)'
+printf 'Installing desktop environment (kde-standard)'
 sudo DEBIAN_FRONTEND=noninteractive \
 apt install --assume-yes kde-standard desktop-base
-sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/plasmashell" > /etc/chrome-remote-desktop-session'  
+sudo bash -c 'echo "exec /etc/X11/Xsession /usr/bin/plasmashell /usr/bin/kwin" > /etc/chrome-remote-desktop-session'  
 sudo apt install --assume-yes xscreensaver
 sudo systemctl disable lightdm.service
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -27,9 +27,5 @@ printf '\nCheck https://remotedesktop.google.com/headless  Copy Command Of Debia
 read -p "Paste Here: " CRP
 su - mr-x -c """$CRP"""
 printf 'Access Your RDP At https://remotedesktop.google.com/access/ \n\n'
-if sudo apt-get upgrade &> /dev/null
-then
-    printf "\n\nUpgrade Completed " >&2
-else
-    printf "\n\nError Occured " >&2
-fi
+sudo apt-get upgrade
+
